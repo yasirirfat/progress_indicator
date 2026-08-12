@@ -20,20 +20,33 @@ class DownloadProgressView extends StatelessWidget {
     return Stack(
       children: [
         CustomPaint(
-          painter: LoadingIndicator(
-            endAngle: isCompleted ? 99.9 : endAngle,
-          ),
+          painter: LoadingIndicator(endAngle: isCompleted ? 99.9 : endAngle),
           child: const SizedBox(height: 200, width: 200),
         ),
         Positioned(
-          left: width * 0.17,
+          left: width * 0.16,
           top: height * 0.08,
-          child: Text(
-            "$text%",
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: text,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 35, // Main number ka size
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text: '%',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize:
+                        20, // '%' ka chota size (apne hisab se change kar sakte hain)
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
