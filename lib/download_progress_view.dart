@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:progress_indicator/loading_indicator.dart';
+import 'package:progress_indicator/loading_indicator_painter.dart';
 
 class DownloadProgressView extends StatelessWidget {
   final double endAngle;
